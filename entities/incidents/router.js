@@ -1,4 +1,5 @@
 import express from 'express';
+import { getAllIncidents, createIncident } from './controller.js';
 
 const router = express.Router();
 

@@ -10,19 +10,14 @@ const incidentSchema = new Schema({
     type: String,
     default: "Desconocido"
   },
-  fecha: {
-    type: Date,
-    default: Date.now() // stored as native Date (MongoDB stores as ISODate, which is a timestamp)
-  },
   descripcion : {
     type: String,
     default: "Desconocido"
   },
-  implicados: [{
-    type: Schema.Types.ObjectId,
-    ref: 'Person',
-    default: []
-  }]
+},
+{
+  timestamps: true,
+  versionKey: false
 });
 
 const Incident = mongoose.model('Incident', incidentSchema);

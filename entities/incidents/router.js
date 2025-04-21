@@ -9,3 +9,13 @@ router.post('/', async (req, res, next) => {
     next(error);
   }
 })
+
+router.get('/', async (req, res, next) => {
+  try {
+    res.json(await getAllIncidents());
+  } catch (error) {
+    next(error);
+  }
+})
+
+export default router;

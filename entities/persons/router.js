@@ -13,7 +13,6 @@ router.post('/', async (req, res, next) => {
 
 router.get('/', async (req, res, next) => {
   try {
-    res.send("getting all persons")
     res.json(await getAllPersons());
   } catch (error) {
     next(error);

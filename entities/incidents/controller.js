@@ -4,7 +4,6 @@ import Incident from "./model.js";
 export const createIncident = async (data) => {
   try {
     const incident = await Incident.create(data);
-    console.log("incident created:", incident);
     return incident;
   } catch (error) {
     console.log(error);
@@ -14,8 +13,7 @@ export const createIncident = async (data) => {
 
 export const getAllIncidents = async () => {
   try {
-    const incidents = await Incident.find().populate("implicados");
-    console.log("incidents found:", incidents);
+    const incidents = await Incident.find();
     return incidents;
   } catch (error) {
     console.log(error);
@@ -25,7 +23,7 @@ export const getAllIncidents = async () => {
 
 export const getIncidentById = async (id) => {
     try {
-        const incident = await Incident.findById({id}).populate("implicados");
+        const incident = await Incident.findById({id});
         if (!incident) throw new Error("Incident not found");
         return incident;
     }

@@ -13,6 +13,7 @@ mongoose.connect(conf.DB_URL)
 .catch((err) => {console.log('Failed to connect.', conf, err)})
 
 app.get("/", (req, res) => res.send("Welcome to the API"))
+app.get("/api", (req, res) => res.send("persons, incidents"))
 app.use("/api/persons", personsRouter)
 
  app.listen(conf.PORT, () => console.log(`Server running on port ${conf.PORT}`))

@@ -4,7 +4,6 @@ import Person from "./model.js";
 export const createPerson = async (data) => {
   try {
     const person = await Person.create(data);
-    console.log("Person created:", person);
     return person;
   } catch (error) {
     console.log(error);
@@ -15,7 +14,6 @@ export const createPerson = async (data) => {
 export const getAllPersons = async () => {
   try {
     const persons = await Person.find();
-    console.log("Persons found:", persons);
     return persons;
   } catch (error) {
     console.log(error);

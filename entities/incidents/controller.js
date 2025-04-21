@@ -1,4 +1,4 @@
-import Incident from "./model";
+import Incident from "./model.js";
 
 
 export const createIncident = async (data) => {

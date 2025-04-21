@@ -35,7 +35,7 @@ export const getPersonById = async (id) => {
 };
 
 export const updatePerson = async (id, data) => {
-  const person = await Person.find(id);
+  const person = await Person.find({ _id: id });
   if (!person) throw new Error("Person not found");
   const updatedPerson = {
     ...person,

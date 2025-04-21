@@ -1,8 +1,8 @@
-const mongoose = require('mongoose');
+import mongoose from "mongoose";
 const Schema = mongoose.Schema;
 
-const sceneSchema = new Schema({
-  evento: {
+const incidentSchema = new Schema({
+  incidente: {
     type: String,
     default: "Desconocido"
   },
@@ -12,7 +12,7 @@ const sceneSchema = new Schema({
   },
   fecha: {
     type: Date,
-    default: Date.now // stored as native Date (MongoDB stores as ISODate, which is a timestamp)
+    default: Date.now() // stored as native Date (MongoDB stores as ISODate, which is a timestamp)
   },
   descripcion : {
     type: String,
@@ -25,6 +25,6 @@ const sceneSchema = new Schema({
   }]
 });
 
-const Scene = mongoose.model('Scene', sceneSchema);
+const Incident = mongoose.model('Incident', incidentSchema);
 
-export default Scene;
+export default Incident;

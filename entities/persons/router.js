@@ -26,6 +26,7 @@ router.get('/:id', async (req, res, next) => {
     next(error);
   }
 })
+
 router.put('/:id', async (req, res, next) => {
   try {
     res.json(await updatePerson(req.params.id, req.body));
@@ -33,6 +34,7 @@ router.put('/:id', async (req, res, next) => {
     next(error);
   }
 })
+
 router.delete('/:id', async (req, res, next) => {
   try {
     res.json(await deletePerson(req.params.id));

@@ -1,3 +1,4 @@
+import { removeEmptyKeys } from "../../core/utils.js";
 import Incident from "./model.js";
 
 
@@ -30,5 +31,36 @@ export const getIncidentById = async (id) => {
     catch (error) {
         console.log(error);
         throw new Error("Error getting incident");
+    }
+}
+
+export const updateIncident = async (id, data) => {
+    const incident = await Incident.find({ _id: id });
+    if (!incident) throw new Error("Incident not found");
+    const updatedIncident = {
+        ...incident,
+        ...removeEmptyKeys(data),
+    };
+    try {
+        return Incident.updateOne(
+            { _id: id },
+            updatedIncident,
+            { new: true }
+        );
+    }
+    catch (error) {
+        console.log(error);
+        throw new Error("Error updating incident");
+    }
+}
+
+export const deleteIncident = async (id) => {
+    try {
+        const incident = await Incident.findByIdAndDelete(id);
+        if (!incident) throw new Error("Incident not found");
+        return incident.incidente + " eliminado.";
+    } catch (error) {
+        console.log(error);
+        throw new Error("Error deleting incident");
     }
 }
